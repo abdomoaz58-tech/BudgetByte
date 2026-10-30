@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph" app:startDestination="@id/homeFragment">
+    <fragment android:id="@+id/homeFragment" android:name="com.example.budgetbyte.ui.dashboard.HomeFragment" android:label="Home">
+        <action android:id="@+id/action_home_to_transactions" app:destination="@id/transactionsFragment" app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/fade_out" app:popEnterAnim="@anim/fade_in" app:popExitAnim="@anim/slide_out_right" />
+        <action android:id="@+id/action_home_to_ocrScannerFragment" app:destination="@id/ocrScannerFragment" />
+    </fragment>
+    <fragment android:id="@+id/ocrScannerFragment" android:name="com.example.budgetbyte.ui.ocr.OcrScannerFragment" android:label="@string/scan_receipt" />
+    <fragment android:id="@+id/transactionsFragment" android:name="com.example.budgetbyte.ui.history.TransactionsFragment" android:label="Transactions">
+        <action android:id="@+id/action_transactions_to_addExpenseFragment" app:destination="@id/addExpenseFragment" app:enterAnim="@anim/fade_in" app:exitAnim="@anim/fade_out" app:popEnterAnim="@anim/fade_in" app:popExitAnim="@anim/fade_out" />
+    </fragment>
+    <fragment android:id="@+id/budgetFragment" android:name="com.example.budgetbyte.ui.budget.BudgetFragment" android:label="Budget" />
+    <fragment android:id="@+id/statsFragment" android:name="com.example.budgetbyte.ui.stats.StatsFragment" android:label="Stats" />
+    <fragment android:id="@+id/settingsFragment" android:name="com.example.budgetbyte.ui.settings.SettingsFragment" android:label="Settings" />
+    <fragment android:id="@+id/addExpenseFragment" android:name="com.example.budgetbyte.ui.add.AddExpenseFragment" android:label="Add Transaction">
+        <argument android:name="title" app:argType="string" android:defaultValue="" />
+        <argument android:name="amount" app:argType="long" android:defaultValue="0L" />
+        <argument android:name="category" app:argType="string" android:defaultValue="" />
+        <argument android:name="date" app:argType="string" android:defaultValue="" />
+        <argument android:name="type" app:argType="string" android:defaultValue="expense" />
+        <argument android:name="transactionType" app:argType="string" android:defaultValue="expense" />
+        <argument android:name="expenseId" app:argType="long" android:defaultValue="-1L" />
+    </fragment>
+    <action android:id="@+id/action_global_addExpenseFragment" app:destination="@id/addExpenseFragment" app:enterAnim="@anim/fade_in" app:exitAnim="@anim/fade_out" app:popEnterAnim="@anim/fade_in" app:popExitAnim="@anim/fade_out" />
+</navigation>

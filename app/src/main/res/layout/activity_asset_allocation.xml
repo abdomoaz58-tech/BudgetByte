@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:overScrollMode="never">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- HEADER: Oversized Balance -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingTop="16dp"
+            android:paddingBottom="20dp"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="توزيع الميزانية"
+                android:textColor="#9CA3AF"
+                android:textSize="14sp"
+                android:letterSpacing="0.15"/>
+
+            <TextView
+                android:id="@+id/tvTotalBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00 ج.م"
+                android:textColor="@color/text_primary"
+                android:textSize="48sp"
+                android:textStyle="bold"
+                android:letterSpacing="-0.02"
+                android:layout_marginTop="4dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="↑ "
+                    android:textColor="#00FF94"
+                    android:textSize="13sp"/>
+                <TextView
+                    android:id="@+id/tvTotalIncome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+0.00"
+                    android:textColor="#00FF94"
+                    android:textSize="13sp"/>
+                <View
+                    android:layout_width="24dp"
+                    android:layout_height="1dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="↓ "
+                    android:textColor="#FF4757"
+                    android:textSize="13sp"/>
+                <TextView
+                    android:id="@+id/tvTotalExpenses"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="-0.00"
+                    android:textColor="#FF4757"
+                    android:textSize="13sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- ROW 1: Budget Status Card (full width) -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="0dp"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardElevation="0dp"
+            android:layout_marginBottom="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="20dp"
+                android:background="@drawable/bento_card_glass">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="الميزانية الشهرية"
+                        android:textColor="#9CA3AF"
+                        android:textSize="12sp"
+                        android:letterSpacing="0.1"/>
+
+                    <TextView
+                        android:id="@+id/tvBudgetBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0%"
+                        android:textColor="#00FF94"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/badge_positive"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="3dp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvBudgetRemaining"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="المتبقي: 0.00 ج.م"
+                    android:textColor="@color/text_primary"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="8dp"/>
+
+                <!-- Geometric Progress Bar -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:layout_marginTop="16dp"
+                    android:background="#1E1E2E">
+                    <View
+                        android:id="@+id/progressBudget"
+                        android:layout_width="0dp"
+                        android:layout_height="6dp"
+                        android:background="@drawable/neon_progress_green"/>
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="6dp">
+                    <TextView
+                        android:id="@+id/tvBudgetSpent"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="منصرف: 0 ج.م"
+                        android:textColor="#6B7280"
+                        android:textSize="11sp"/>
+                    <TextView
+                        android:id="@+id/tvBudgetTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="الميزانية: -- ج.م"
+                        android:textColor="#6B7280"
+                        android:textSize="11sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- ROW 2: Two small cards (Income | Expenses) -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <!-- Income Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginEnd="4dp"
+                app:cardCornerRadius="0dp"
+                app:cardBackgroundColor="@color/card_bg"
+                app:cardElevation="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:background="@drawable/bento_card_glass_green">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="إجمالي الدخل"
+                        android:textColor="#9CA3AF"
+                        android:textSize="11sp"/>
+                    <TextView
+                        android:id="@+id/tvIncomeCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="+0.00"
+                        android:textColor="#00FF94"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"/>
+
+                    <!-- Geometric segments -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="4dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp">
+                        <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="3" android:background="#00FF94" android:layout_marginEnd="2dp"/>
+                        <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1" android:background="#00CC75" android:layout_marginEnd="2dp"/>
+                        <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1" android:background="#1E1E2E"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Expenses Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_marginStart="4dp"
+                app:cardCornerRadius="0dp"
+                app:cardBackgroundColor="@color/card_bg"
+                app:cardElevation="0dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:background="@drawable/bento_card_glass_red">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="إجمالي المصاريف"
+                        android:textColor="#9CA3AF"
+                        android:textSize="11sp"/>
+                    <TextView
+                        android:id="@+id/tvExpensesCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="-0.00"
+                        android:textColor="#FF4757"
+                        android:textSize="22sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="8dp"/>
+
+                    <!-- Geometric segments -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="4dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="12dp">
+                        <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="2" android:background="#FF4757" android:layout_marginEnd="2dp"/>
+                        <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="2" android:background="#CC2233" android:layout_marginEnd="2dp"/>
+                        <View android:layout_width="0dp" android:layout_height="4dp" android:layout_weight="1" android:background="#1E1E2E"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- ROW 3: Category Breakdown Title -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="توزيع الفئات"
+            android:textColor="#9CA3AF"
+            android:textSize="12sp"
+            android:letterSpacing="0.15"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="4dp"/>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- BENTO GRID: Category Cards (dynamically populated) -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:id="@+id/containerCategories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- BOTTOM: Recent Budget Logs -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="سجلات الإنفاق الأخيرة"
+            android:textColor="#9CA3AF"
+            android:textSize="12sp"
+            android:letterSpacing="0.15"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="16dp"/>
+
+        <LinearLayout
+            android:id="@+id/containerRecentLogs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="32dp"/>
+
+    </LinearLayout>
+</ScrollView>
+

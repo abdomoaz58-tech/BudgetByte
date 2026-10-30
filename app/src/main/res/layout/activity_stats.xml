@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:fillViewport="true"
+    tools:context=".StatsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/spacing_xlarge">
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- HEADER                                                  -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="@dimen/spacing_medium"
+            android:paddingEnd="@dimen/spacing_medium"
+            android:paddingTop="@dimen/spacing_large"
+            android:paddingBottom="@dimen/spacing_medium"
+            android:background="@color/bg_color">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@android:drawable/ic_media_previous"
+                android:contentDescription="رجوع"
+                android:tint="@color/text_primary"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/spacing_small" />
+
+            <TextView
+                style="@style/FinText.Headline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="التحليل البياني"
+                android:gravity="center"
+                android:layout_marginEnd="40dp" />
+
+        </LinearLayout>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- INSIGHT CARD                                            -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/FinCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            app:cardBackgroundColor="@color/insight_bg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_medium">
+
+                <!-- Card header row: lightbulb icon + label -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="@dimen/spacing_small">
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@android:drawable/ic_dialog_info"
+                        android:tint="@color/insight_text"
+                        android:contentDescription="تحليل ذكي"
+                        android:layout_marginEnd="@dimen/spacing_small" />
+
+                    <TextView
+                        style="@style/FinText.Body"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="تحليل ذكي"
+                        android:textColor="@color/insight_text"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvInsight"
+                    style="@style/FinText.Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/insight_text"
+                    android:text="جاري التحليل..."
+                    android:lineSpacingMultiplier="1.4" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- MONTHLY COMPARISON CARD                                 -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/FinCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_medium">
+
+                <TextView
+                    style="@style/FinText.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="مقارنة شهرية"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginBottom="@dimen/spacing_small" />
+
+                <TextView
+                    android:id="@+id/tvMonthlyComparison"
+                    style="@style/FinText.Subtitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_primary"
+                    android:text="جاري حساب الفرق..."
+                    android:lineSpacingMultiplier="1.3" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- PIE CHART CARD (Elevated)                               -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/FinCard.Elevated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_medium">
+
+                <TextView
+                    style="@style/FinText.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="توزيع الفئات"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginBottom="@dimen/spacing_small" />
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/pieChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="280dp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- LINE CHART CARD                                         -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/FinCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_medium">
+
+                <TextView
+                    style="@style/FinText.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="الإنفاق اليومي"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginBottom="@dimen/spacing_small" />
+
+                <com.github.mikephil.charting.charts.LineChart
+                    android:id="@+id/lineChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- BAR CHART CARD                                          -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/FinCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/spacing_large"
+            android:layout_marginEnd="@dimen/spacing_large"
+            android:layout_marginBottom="@dimen/spacing_medium">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_medium">
+
+                <TextView
+                    style="@style/FinText.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="المقارنة الشهرية"
+                    android:textColor="@color/text_secondary"
+                    android:layout_marginBottom="@dimen/spacing_small" />
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="220dp" />
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <!-- EXPORT PDF BUTTON                                       -->
+        <!-- ═══════════════════════════════════════════════════════ -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnExportPdf"
+            style="@style/FinButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:text="تصدير PDF"
+            app:icon="@android:drawable/ic_menu_save" />
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Top Quick Info & Visual State -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="8dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="نظرة عامة"
+                    android:textColor="@color/outline"
+                    android:textSize="10sp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.05"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="إدارة الميزانية"
+                    android:textColor="@color/on_surface"
+                    android:textSize="22sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/rounded_corner_bg"
+                android:backgroundTint="@color/surface_container_high"
+                android:paddingHorizontal="12dp"
+                android:paddingVertical="6dp"
+                android:gravity="center_vertical">
+                <ImageView
+                    android:id="@+id/btnNextMonth"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/previous_month"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_chevron_right"
+                    app:tint="@color/on_surface" />
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_calendar" 
+                    app:tint="@color/primary"/>
+                <TextView
+                    android:id="@+id/tvSelectedMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="أكتوبر ٢٠٢٦"
+                    android:layout_marginStart="6dp"
+                    android:textColor="@color/primary"
+                    android:textSize="12sp"
+                    android:textStyle="bold"/>
+                <ImageView
+                    android:id="@+id/btnPrevMonth"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="@string/next_month"
+                    android:padding="8dp"
+                    android:src="@drawable/ic_chevron_left"
+                    app:tint="@color/on_surface" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Main Hero Budget Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/surface_container_lowest"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="1dp"
+            app:contentPadding="20dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+                    
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:src="@drawable/ic_pie_chart"
+                                app:tint="@color/primary"/>
+                            <TextView
+                                android:id="@+id/tvBudgetSummary"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="الميزانية الشهرية المقررة"
+                                android:layout_marginStart="4dp"
+                                android:textColor="@color/on_surface_variant"
+                                android:textSize="12sp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center_vertical">
+                            <TextView
+                                android:id="@+id/tvBudgetAmount"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="10,000.00"
+                                android:textColor="@color/on_surface"
+                                android:textSize="40sp"
+                                android:textStyle="bold"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ج.م"
+                                android:layout_marginStart="8dp"
+                                android:textColor="@color/outline"
+                                android:textSize="16sp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/btnQuickEdit"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/circle_bg"
+                        android:backgroundTint="@color/surface_container"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_tune"
+                        app:tint="@color/on_surface"/>
+                </LinearLayout>
+
+                <!-- Progress Meter -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="16dp">
+                    
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical">
+                            <View
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:background="@drawable/circle_bg"
+                                android:backgroundTint="@color/secondary"/>
+                            <TextView
+                                android:id="@+id/tvBudgetSpent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="المصروف: 8,250.00 ج.م"
+                                android:layout_marginStart="6dp"
+                                android:textColor="@color/on_surface"
+                                android:textSize="12sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/tvBudgetProgressPercent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="82.5%"
+                            android:textColor="@color/secondary"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <ProgressBar
+                        android:id="@+id/progressMainBudget"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="14dp"
+                        android:progressDrawable="@drawable/custom_progress_bar_secondary"
+                        android:progress="82"
+                        android:max="100"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/tvBudgetLimit"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:text="الحد الإجمالي: 10,000 ج.م"
+                            android:layout_weight="1"
+                            android:textColor="@color/on_surface_variant"
+                            android:textSize="10sp"/>
+                        <TextView
+                            android:id="@+id/tvBudgetRemaining"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1,750.00 ج.م متبقي"
+                            android:textColor="@color/tertiary"
+                            android:textSize="12sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Alert Banner -->
+                <LinearLayout
+                    android:id="@+id/alertBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/rounded_corner_bg"
+                    android:backgroundTint="@color/secondary_fixed" 
+                    android:padding="12dp"
+                    android:visibility="gone"
+                    android:orientation="horizontal">
+                    
+                    <ImageView
+                        android:layout_width="28dp"
+                        android:layout_height="28dp"
+                        android:background="@drawable/circle_bg"
+                        android:backgroundTint="@color/secondary"
+                        android:src="@drawable/ic_warning"
+                        app:tint="@color/on_secondary"
+                        android:padding="5dp"/>
+                        
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تنبيه الميزانية النشط"
+                            android:textColor="@color/on_secondary_fixed_variant"
+                            android:textStyle="bold"
+                            android:textSize="14sp"/>
+                        <TextView
+                            android:id="@+id/tvAlertMessage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/on_secondary_container"
+                            android:textSize="14sp"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Sparkline & Efficiency Snapshot -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:baselineAligned="false"
+            android:layout_marginBottom="20dp">
+            
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="6dp"
+                app:cardBackgroundColor="@color/surface_container_lowest"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp"
+                app:contentPadding="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_trending_up"
+                            app:tint="@color/tertiary"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="المعدل اليومي المسموح"
+                            android:layout_marginStart="6dp"
+                            android:textColor="@color/on_surface_variant"
+                            android:textSize="10sp"/>
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvDailyAllowedRate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.00 ج.م"
+                        android:textColor="@color/on_surface"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="حتى نهاية الشهر الحالي"
+                        android:textColor="@color/outline"
+                        android:textSize="10sp"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginStart="6dp"
+                app:cardBackgroundColor="@color/surface_container_lowest"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp"
+                app:contentPadding="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+                        <ImageView
+                            android:layout_width="16dp"
+                            android:layout_height="16dp"
+                            android:src="@drawable/ic_analytics"
+                            app:tint="@color/primary"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="الإنفاق المتوقع"
+                            android:layout_marginStart="6dp"
+                            android:textColor="@color/on_surface_variant"
+                            android:textSize="10sp"/>
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/tvProjectedSpending"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0.00 ج.م"
+                        android:textColor="@color/secondary"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="4dp"/>
+                    <TextView
+                        android:id="@+id/tvProjectedStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/budget_projected_good"
+                        android:textColor="@color/tertiary"
+                        android:textSize="10sp"
+                        android:layout_marginTop="2dp"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- Category Budget Allocations Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+            
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/rounded_corner_bg"
+                    android:backgroundTint="@color/primary"
+                    android:layout_marginEnd="8dp"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="تفاصيل الميزانية حسب الفئات"
+                    android:textSize="18sp"
+                    android:textColor="@color/on_surface"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            
+            <TextView
+                android:id="@+id/tvCategoryCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/outline"
+                android:textSize="12sp"/>
+            </LinearLayout>
+
+        <!-- Categories RecyclerView -->
+        <LinearLayout
+            android:id="@+id/budgetCategoryList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="8dp"/>
+        <TextView
+            android:id="@+id/budgetCategoryEmpty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/no_data"
+            android:textColor="@color/on_surface_variant"
+            android:visibility="gone"
+            android:layout_marginBottom="20dp"/>
+
+        <!-- Smart Saving Tip Card -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_corner_bg"
+            android:backgroundTint="@color/surface_container"
+            android:padding="16dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="16dp">
+            
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/circle_bg"
+                android:backgroundTint="@color/surface_container_lowest"
+                android:src="@drawable/ic_lightbulb"
+                app:tint="@color/primary"
+                android:padding="10dp"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_marginStart="14dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="نصيحة توفير ذكية"
+                    android:textColor="@color/on_surface"
+                    android:textStyle="bold"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="خفض نفقات البقالة اليومية بنسبة ١٥٪ سيوفر لك نحو ٤٨٠ ج.م إضافية قبل بداية نوفمبر."
+                    android:textColor="@color/on_surface_variant"
+                    android:textSize="14sp"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Primary FAB Area -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnEditBudgetLimit"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="تعديل سقف الميزانية"
+            app:icon="@drawable/ic_edit"
+            app:backgroundTint="@color/primary"
+            android:textColor="@color/on_primary"
+            app:iconTint="@color/on_primary"
+            app:cornerRadius="28dp"
+            android:textSize="16sp"
+            app:iconGravity="textStart"
+            android:elevation="8dp"/>
+            
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

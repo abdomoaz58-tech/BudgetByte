@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Core -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+
+    <!-- ========================================================= -->
+    <!-- BudgetByte Pro System Light Palette -->
+    <!-- ========================================================= -->
+
+    <!-- Surface -->
+    <color name="surface">#FAF8FF</color>
+    <color name="background">#FAF8FF</color>
+    <color name="surface_dim">#D2D9F4</color>
+    <color name="surface_bright">#FAF8FF</color>
+    <color name="surface_container_lowest">#FFFFFF</color>
+    <color name="surface_container_low">#F2F3FF</color>
+    <color name="surface_container">#EAEDFF</color>
+    <color name="surface_container_high">#E2E7FF</color>
+    <color name="surface_container_highest">#DAE2FD</color>
+
+    <color name="on_surface">#131B2E</color>
+    <color name="on_surface_variant">#434654</color>
+    <color name="inverse_surface">#283044</color>
+    <color name="inverse_on_surface">#EEF0FF</color>
+
+    <color name="outline">#737686</color>
+    <color name="outline_variant">#C3C5D7</color>
+    <color name="surface_tint">#1353D8</color>
+    <color name="surface_variant">#DAE2FD</color>
+
+    <!-- Primary / Blue -->
+    <color name="primary">#003FB1</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="primary_container">#1A56DB</color>
+    <color name="on_primary_container">#D4DCFF</color>
+    <color name="inverse_primary">#B5C4FF</color>
+    <color name="primary_fixed">#DBE1FF</color>
+    <color name="primary_fixed_dim">#B5C4FF</color>
+    <color name="on_primary_fixed">#00174D</color>
+    <color name="on_primary_fixed_variant">#003DAB</color>
+
+    <!-- Secondary / Burgundy -->
+    <color name="secondary">#A5345D</color>
+    <color name="on_secondary">#FFFFFF</color>
+    <color name="secondary_container">#FF7BA4</color>
+    <color name="on_secondary_container">#760B3A</color>
+    <color name="secondary_fixed">#FFD9E1</color>
+    <color name="secondary_fixed_dim">#FFB1C5</color>
+    <color name="on_secondary_fixed">#3F001A</color>
+    <color name="on_secondary_fixed_variant">#861A45</color>
+
+    <!-- Tertiary / Emerald -->
+    <color name="tertiary">#005439</color>
+    <color name="on_tertiary">#FFFFFF</color>
+    <color name="tertiary_container">#006F4D</color>
+    <color name="on_tertiary_container">#7FF2BE</color>
+    <color name="tertiary_fixed">#85F8C4</color>
+    <color name="tertiary_fixed_dim">#68DBA9</color>
+    <color name="on_tertiary_fixed">#002114</color>
+    <color name="on_tertiary_fixed_variant">#005137</color>
+
+    <!-- Error -->
+    <color name="error">#BA1A1A</color>
+    <color name="on_error">#FFFFFF</color>
+    <color name="error_container">#FFDAD6</color>
+    <color name="on_error_container">#93000A</color>
+
+    <!-- General -->
+    <color name="status_bar">#FAF8FF</color>
+    <color name="divider">#E2E7FF</color>
+
+    <!-- ========================================================= -->
+    <!-- Compatibility aliases for existing app code -->
+    <!-- ========================================================= -->
+
+    <color name="primary_blue">#003FB1</color>
+    <color name="primary_blue_dark">#003DAB</color>
+    <color name="primary_blue_tint">#DBE1FF</color>
+
+    <color name="burgundy">#A5345D</color>
+    <color name="burgundy_dark">#861A45</color>
+    <color name="burgundy_tint">#FFD9E1</color>
+
+    <color name="primary_variant">#003DAB</color>
+    <color name="secondary_variant">#861A45</color>
+
+    <!-- Income / Expense -->
+    <color name="color_income">#003FB1</color>
+    <color name="color_expense">#A5345D</color>
+    <color name="income">#003FB1</color>
+    <color name="expense">#A5345D</color>
+
+    <!-- Insights -->
+    <color name="insight_bg">#FFD9E1</color>
+    <color name="insight_text">#861A45</color>
+
+    <!-- Background aliases -->
+    <color name="bg_color">#FAF8FF</color>
+    <color name="surface_color">#FFFFFF</color>
+    <color name="card_bg">#FFFFFF</color>
+
+    <!-- Text aliases -->
+    <color name="text_primary">#131B2E</color>
+    <color name="text_secondary">#434654</color>
+    <color name="text_hint">#737686</color>
+
+    <!-- Alpha colors -->
+    <color name="secondary_fixed_alpha50">#80FFD9E1</color>
+
+</resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widgetContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@color/primary"
+    android:padding="16dp">
+
+    <!-- ─── App Label ─────────────────────────────────────────────── -->
+    <TextView
+        android:id="@+id/widgetTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BudgetByte"
+        android:textColor="@color/secondary"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.08" />
+
+    <!-- ─── Net Balance ───────────────────────────────────────────── -->
+    <TextView
+        android:id="@+id/widgetNetBalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="الصافي: جاري التحميل..."
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:layout_marginTop="6dp" />
+
+    <!-- ─── Divider ───────────────────────────────────────────────── -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/primary_variant"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- ─── Budget Info ────────────────────────────────────────────── -->
+    <TextView
+        android:id="@+id/widgetBudgetInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="المتبقي: جاري التحميل..."
+        android:textColor="@color/text_hint"
+        android:textSize="13sp" />
+
+    <!-- ─── Add Expense Button ─────────────────────────────────────── -->
+    <Button
+        android:id="@+id/widgetBtnAdd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="+ إضافة مصروف"
+        android:textColor="@color/primary"
+        android:textStyle="bold"
+        android:backgroundTint="@color/secondary"
+        android:layout_marginTop="12dp" />
+
+</LinearLayout>

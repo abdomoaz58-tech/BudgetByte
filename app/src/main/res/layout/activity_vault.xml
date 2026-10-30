@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_medium">
+
+        <!-- Header with close button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="@dimen/spacing_large">
+
+            <TextView
+                style="@style/FinText.Headline"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="الخزنة"
+                android:textColor="@color/text_primary" />
+
+            <ImageView
+                android:id="@+id/btnCloseVault"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:padding="8dp"
+                android:src="@android:drawable/ic_menu_close_clear_cancel"
+                app:tint="@color/text_primary"
+                android:background="?attr/selectableItemBackgroundBorderless"/>
+        </LinearLayout>
+
+        <!-- Lifetime Total Card -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/FinCard.Elevated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            app:cardBackgroundColor="@color/primary">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_large">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_small"
+                    android:gravity="center"
+                    android:text="إجمالي الإنفاق مدى الحياة"
+                    android:textColor="@color/secondary"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tvVaultLifetimeTotal"
+                    style="@style/FinText.Display"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    tools:text="12,450.00 ر.س" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- 2-Column Row: Highest + Count -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:orientation="horizontal">
+
+            <!-- Highest Amount Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/FinCard.Elevated"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/primary">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_medium">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/spacing_micro"
+                        android:gravity="center"
+                        android:text="أعلى مصروف"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_small" />
+
+                    <TextView
+                        android:id="@+id/tvVaultHighestAmount"
+                        style="@style/FinText.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        tools:text="850.00 ر.س" />
+
+                    <TextView
+                        android:id="@+id/tvVaultHighestTitle"
+                        style="@style/FinText.Caption"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_micro"
+                        android:gravity="center"
+                        android:maxLines="1"
+                        android:ellipsize="end"
+                        android:textColor="@color/text_hint"
+                        tools:text="إيجار شهر يوليو" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Expense Count Card -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/FinCard.Elevated"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_weight="1"
+                app:cardBackgroundColor="@color/primary">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="@dimen/spacing_medium">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/spacing_micro"
+                        android:gravity="center"
+                        android:text="إجمالي المعاملات"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_small" />
+
+                    <TextView
+                        android:id="@+id/tvVaultExpenseCount"
+                        style="@style/FinText.Title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textColor="@color/white"
+                        tools:text="128" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/spacing_micro"
+                        android:gravity="center"
+                        android:text="معاملة مسجلة"
+                        android:textColor="@color/text_hint"
+                        android:textSize="@dimen/text_small" />
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+
+        <!-- Monthly Average Card -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/FinCard.Elevated"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            app:cardBackgroundColor="@color/primary">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_large">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_small"
+                    android:gravity="center"
+                    android:text="متوسط الإنفاق الشهري"
+                    android:textColor="@color/text_hint"
+                    android:textSize="@dimen/text_small" />
+
+                <TextView
+                    android:id="@+id/tvVaultMonthlyAvg"
+                    style="@style/FinText.Display"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="28sp"
+                    tools:text="1,037.50 ر.س" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Secret Insight Card -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/FinCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            app:cardBackgroundColor="@color/insight_bg">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_large">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="تحليل سرّي"
+                    android:textColor="@color/insight_text"
+                    android:textSize="@dimen/text_subtitle"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="@dimen/spacing_small"/>
+
+                <TextView
+                    android:id="@+id/tvVaultInsight"
+                    style="@style/FinText.Body"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/insight_text"
+                    android:lineSpacingExtra="4dp"
+                    android:text="جاري التحليل..."/>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Footer locked message -->
+        <TextView
+            style="@style/FinText.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:drawablePadding="@dimen/spacing_small"
+            android:gravity="center"
+            android:padding="@dimen/spacing_medium"
+            android:text="🔒 بياناتك محمية ومشفرة بالكامل على جهازك"
+            android:textColor="@color/text_hint" />
+
+    </LinearLayout>
+
+</ScrollView>

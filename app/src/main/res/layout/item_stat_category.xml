@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:layout_marginBottom="4dp"
+    android:background="?attr/selectableItemBackground"
+    android:gravity="center_vertical">
+
+    <View
+        android:id="@+id/vCategoryColorBadge"
+        android:layout_width="12dp"
+        android:layout_height="12dp"
+        android:background="@drawable/circle_bg"
+        android:backgroundTint="@color/primary_container"/>
+
+    <TextView
+        android:id="@+id/tvStatCategoryName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="تسوق"
+        android:layout_marginStart="12dp"
+        android:textColor="@color/on_surface"
+        android:textSize="14sp"
+        android:maxLines="1"
+        android:ellipsize="end"/>
+
+    <TextView
+        android:id="@+id/tvStatCategoryAmount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3,135 EGP"
+        android:textColor="@color/outline"
+        android:textSize="12sp"
+        android:layout_marginEnd="16dp"/>
+
+    <TextView
+        android:id="@+id/tvStatCategoryPercentage"
+        android:layout_width="36dp"
+        android:layout_height="wrap_content"
+        android:text="٣٨٪"
+        android:textColor="@color/primary_container"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="start"/>
+</LinearLayout>

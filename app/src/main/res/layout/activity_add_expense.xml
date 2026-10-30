@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_color"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/spacing_medium">
+
+        <!-- Header -->
+        <TextView
+            android:id="@+id/tvHeaderTitle"
+            style="@style/FinText.Headline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_large"
+            android:gravity="center"
+            android:text="إضافة معاملة"
+            android:textColor="@color/text_primary" />
+
+        <!-- Toggle Group: Expense / Income -->
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleGroupType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_large"
+            app:checkedButton="@id/btnTypeExpense"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTypeExpense"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="مصروف"
+                android:textColor="@color/expense"
+                app:cornerRadius="@dimen/radius_small"
+                app:strokeColor="@color/expense"
+                app:strokeWidth="2dp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnTypeIncome"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:text="دخل"
+                android:textColor="@color/income"
+                app:cornerRadius="@dimen/radius_small"
+                app:strokeColor="@color/income"
+                app:strokeWidth="2dp" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+        <!-- Category Card -->
+        <com.google.android.material.card.MaterialCardView
+            style="@style/FinCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_medium">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/spacing_medium">
+
+                <TextView
+                    style="@style/FinText.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/spacing_small"
+                    android:text="الفئة"
+                    android:textColor="@color/text_secondary" />
+
+                <Spinner
+                    android:id="@+id/spinnerCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@android:color/transparent"
+                    android:textColor="@color/text_primary" />
+
+                <TextView
+                    android:id="@+id/tvSubCategory"
+                    style="@style/FinText.Caption"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/spacing_micro"
+                    android:textColor="@color/text_hint"
+                    android:visibility="gone"
+                    tools:text="تفاصيل الفئة الفرعية"
+                    tools:visibility="visible" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Title Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutTitle"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:hint="عنوان المعاملة"
+            app:boxCornerRadiusBottomEnd="@dimen/radius_small"
+            app:boxCornerRadiusBottomStart="@dimen/radius_small"
+            app:boxCornerRadiusTopEnd="@dimen/radius_small"
+            app:boxCornerRadiusTopStart="@dimen/radius_small"
+            app:boxStrokeColor="@color/secondary"
+            app:hintTextColor="@color/text_secondary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textCapSentences"
+                android:maxLines="1"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_hint" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Amount Input -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_medium"
+            android:hint="المبلغ"
+            app:boxCornerRadiusBottomEnd="@dimen/radius_small"
+            app:boxCornerRadiusBottomStart="@dimen/radius_small"
+            app:boxCornerRadiusTopEnd="@dimen/radius_small"
+            app:boxCornerRadiusTopStart="@dimen/radius_small"
+            app:boxStrokeColor="@color/secondary"
+            app:hintTextColor="@color/text_secondary">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAmount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:maxLines="1"
+                android:textColor="@color/text_primary"
+                android:textColorHint="@color/text_hint" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Date Picker Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/layoutDate"
+            style="@style/FinCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/spacing_large"
+            android:clickable="true"
+            android:focusable="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="@dimen/spacing_medium">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginEnd="@dimen/spacing_small"
+                    android:contentDescription="@null"
+                    android:src="@android:drawable/ic_menu_my_calendar"
+                    app:tint="@color/secondary" />
+
+                <TextView
+                    android:id="@+id/tvSelectedDate"
+                    style="@style/FinText.Body"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textColor="@color/text_primary"
+                    tools:text="اختر التاريخ" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@null"
+                    android:src="@android:drawable/arrow_down_float"
+                    app:tint="@color/text_secondary" />
+
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Save Button -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSave"
+            style="@style/FinButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="@dimen/spacing_small"
+            android:backgroundTint="@color/secondary"
+            android:text="حفظ"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_subtitle"
+            app:cornerRadius="@dimen/radius_small" />
+
+    </LinearLayout>
+
+</ScrollView>

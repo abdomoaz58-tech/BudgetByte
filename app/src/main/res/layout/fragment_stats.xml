@@ -1,0 +1,545 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface"
+    android:clipToPadding="false"
+    android:paddingBottom="80dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Header / Month Selector -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="8dp">
+
+            <ImageView
+                android:id="@+id/btnNextMonth"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/previous_month"
+                android:src="@drawable/ic_chevron_right"
+                android:padding="10dp"
+                app:tint="@color/on_surface"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_centerInParent="true"
+                android:gravity="center">
+                <TextView
+                    android:id="@+id/tvSelectedMonth"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="أكتوبر ٢٠٢٦"
+                    android:textColor="@color/on_surface"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nav_stats"
+                    android:textColor="@color/outline"
+                    android:textSize="10sp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/btnPrevMonth"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="@string/next_month"
+                android:src="@drawable/ic_chevron_left"
+                android:padding="10dp"
+                app:tint="@color/on_surface"/>
+        </RelativeLayout>
+
+        <!-- Monthly Spend Overview Card -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/surface_container_lowest"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="1dp"
+            app:contentPadding="24dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tvMonthTotalLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/this_month_spending"
+                        android:textColor="@color/outline"
+                        android:textSize="12sp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentStart="true"/>
+                    
+                    <LinearLayout
+                        android:id="@+id/comparisonBadge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:background="@drawable/rounded_corner_bg"
+                        android:backgroundTint="@color/secondary_fixed"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="4dp"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="center_vertical">
+                        <ImageView
+                            android:id="@+id/ivComparisonTrend"
+                            android:layout_width="14dp"
+                            android:layout_height="14dp"
+                            android:src="@drawable/ic_trending_up"
+                            app:tint="@color/on_secondary_fixed_variant"/>
+                        <TextView
+                            android:id="@+id/tvMonthlyComparison"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="+١٢٪ مقارنة بالماضي"
+                            android:layout_marginStart="4dp"
+                            android:textColor="@color/on_secondary_fixed_variant"
+                            android:textSize="10sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="12dp"
+                    android:gravity="bottom">
+                    <TextView
+                        android:id="@+id/tvMonthTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="8,250.00"
+                        android:textColor="@color/on_surface"
+                        android:textSize="40sp"
+                        android:textStyle="bold"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/currency_egp"
+                        android:layout_marginStart="8dp"
+                        android:textColor="@color/primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:layout_marginBottom="8dp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical">
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_calendar_today"
+                        app:tint="@color/primary"/>
+                    <TextView
+                        android:id="@+id/tvMonthPeriod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="الفترة من ٠١ إلى ٣١ أكتوبر ٢٠٢٦"
+                        android:layout_marginStart="6dp"
+                        android:textColor="@color/on_surface_variant"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Category Breakdown Section -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/surface_container_lowest"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="1dp"
+            app:contentPadding="24dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_alignParentStart="true">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/category_breakdown"
+                            android:textColor="@color/on_surface"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="توزيع المصروفات حسب التصنيف"
+                            android:textColor="@color/outline"
+                            android:textSize="10sp"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/circle_bg"
+                        android:backgroundTint="@color/surface_container_low"
+                        android:padding="7dp"
+                        android:src="@drawable/ic_tune"
+                        app:tint="@color/outline"/>
+                </RelativeLayout>
+
+                <!-- Container for Donut Chart & List -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    
+                    <RelativeLayout
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        android:layout_marginEnd="16dp">
+                        <com.github.mikephil.charting.charts.PieChart
+                            android:id="@+id/pieChart"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:visibility="visible" />
+                        
+                        <LinearLayout
+                            android:id="@+id/topCategoryOverlay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:layout_centerInParent="true"
+                            android:gravity="center">
+                            <TextView
+                                android:id="@+id/tvTopCategoryLabel"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/stats_top_spending"
+                                android:textColor="@color/outline"
+                                android:textSize="10sp"/>
+                            <TextView
+                                android:id="@+id/tvTopCategoryName"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tools:text="تسوق"
+                                android:textColor="@color/on_surface"
+                                android:textSize="18sp"
+                                android:textStyle="bold"
+                                android:maxLines="1"
+                                android:ellipsize="end"/>
+                            <TextView
+                                android:id="@+id/tvTopCategoryPercent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                tools:text="٣٨٪"
+                                android:textColor="@color/primary_container"
+                                android:textSize="12sp"
+                                android:textStyle="bold"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+
+                    <!-- Categories RecyclerView -->
+                    <LinearLayout
+                        android:id="@+id/categoryLegend"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" />
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/categoryEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:text="@string/no_data"
+                    android:textColor="@color/on_surface_variant"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Last 6 Months Spending Chart -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/surface_container_lowest"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="1dp"
+            app:contentPadding="24dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp">
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_alignParentStart="true">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/monthly_history"
+                            android:textColor="@color/on_surface"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تطور المصاريف الإجمالية شهرياً"
+                            android:textColor="@color/outline"
+                            android:textSize="10sp"/>
+                    </LinearLayout>
+                    
+                    <TextView
+                        android:id="@+id/tvAverageSpending"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        tools:text="المتوسط: 7,658 EGP"
+                        android:textColor="@color/primary"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"/>
+                </RelativeLayout>
+
+                <!-- Bar Chart Custom Layout -->
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/barChart"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:visibility="visible" />
+                <TextView
+                    android:id="@+id/barEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:padding="16dp"
+                    android:text="@string/no_data"
+                    android:textColor="@color/on_surface_variant"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Smart Insights Container -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/rounded_corner_bg"
+            android:backgroundTint="#4DFFD9E1"
+            android:padding="24dp"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_auto_awesome"
+                    app:tint="@color/on_secondary_container"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/smart_insights"
+                    android:layout_marginStart="8dp"
+                    android:textColor="@color/on_secondary_container"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+            <!-- Insight 1 -->
+            <LinearLayout
+                android:id="@+id/layoutInsight1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/rounded_corner_bg"
+                android:backgroundTint="#CCFFFFFF"
+                android:padding="16dp"
+                android:layout_marginBottom="8dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💡"
+                    android:textSize="18sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvInsight"
+                    tools:text="٣٨٪ من إنفاق هذا الشهر كان في فئة التسوق، بزيادة ٥٠٠ EGP عن المتوسط الشهري المعتاد."
+                    android:layout_marginStart="12dp"
+                    android:textColor="@color/on_surface"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+            
+            <!-- Insight 2 -->
+            <LinearLayout
+                android:id="@+id/layoutInsight2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/rounded_corner_bg"
+                android:backgroundTint="#CCFFFFFF"
+                android:padding="16dp"
+                android:layout_marginBottom="8dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="📈"
+                    android:textSize="18sp"/>
+                <TextView
+                    android:id="@+id/tvInsight2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="أعلى يوم إنفاق سُجل كان يوم الأحد (٠٥ أكتوبر) بإجمالي ٢,١٥٠ EGP."
+                    android:layout_marginStart="12dp"
+                    android:textColor="@color/on_surface"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+
+            <!-- Insight 3 -->
+            <LinearLayout
+                android:id="@+id/layoutInsight3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/rounded_corner_bg"
+                android:backgroundTint="#CCFFFFFF"
+                android:padding="16dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🎯"
+                    android:textSize="18sp"/>
+                <TextView
+                    android:id="@+id/tvInsight3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="أنت في المسار الصحيح للادخار إذا حافظت على معدل الإنفاق اليومي دون تجاوز ٢٤٠ EGP للأيام المتبقية."
+                    android:layout_marginStart="12dp"
+                    android:textColor="@color/on_surface"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Financial Context & Micro CTA -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/surface_container_lowest"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="1dp"
+            app:contentPadding="16dp"
+            android:layout_marginBottom="24dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical">
+                
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@+id/btnDownloadReport"
+                    android:gravity="center_vertical">
+                    
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/circle_bg"
+                        android:backgroundTint="@color/primary_fixed"
+                        android:src="@drawable/ic_file_download"
+                        app:tint="@color/primary"
+                        android:padding="10dp"/>
+                        
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="12dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="تقرير التحليل الشامل"
+                            android:textColor="@color/on_surface"
+                            android:textSize="16sp"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/tvExportSubtitle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            tools:text="تصدير ملخص شهر أكتوبر بتنسيق PDF"
+                            android:textColor="@color/outline"
+                            android:textSize="10sp"/>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDownloadReport"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="تحميل"
+                    android:textSize="12sp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    app:cornerRadius="20dp"
+                    app:backgroundTint="@color/primary_container"
+                    android:textColor="@color/on_primary"
+                    android:minHeight="40dp"/>
+            </RelativeLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

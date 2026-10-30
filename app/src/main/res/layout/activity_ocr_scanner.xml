@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scannerRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/scannerToolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:title="@string/scanner_title"
+        app:navigationIcon="@drawable/ic_arrow_back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageButton
+        android:id="@+id/scannerFlashBtn"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:contentDescription="@string/scanner_flash"
+        android:enabled="false"
+        android:src="@drawable/ic_flash_off"
+        app:layout_constraintTop_toTopOf="@id/scannerToolbar"
+        app:layout_constraintBottom_toBottomOf="@id/scannerToolbar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/scannerPreview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/scannerToolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/liveOcrCard" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/liveOcrCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/scannerTabs">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/scannerOcrHelp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/scanner_ocr_help"
+                android:textColor="@color/on_surface_variant"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/liveStore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/liveDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/liveCategory"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/liveAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/scannerTabs"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        app:singleSelection="true"
+        app:checkedButton="@id/tabReceipt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnFinishMultiPage">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tabReceipt"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="@string/scanner_receipt" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tabTaxQR"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="@string/scanner_tax_qr" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/tabMulti"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:layout_weight="1"
+            android:text="@string/scanner_multi_page" />
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnFinishMultiPage"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@id/scannerActions"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/scannerActions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnGallery"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/scanner_gallery" />
+
+        <ImageButton
+            android:id="@+id/shutterBtn"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="?attr/colorPrimary"
+            android:contentDescription="@string/scanner_capture"
+            android:src="@drawable/ic_document_scanner" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnManual"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="@string/scanner_manual" />
+    </LinearLayout>
+
+    <com.google.android.material.materialswitch.MaterialSwitch
+        android:id="@+id/toggleAuto"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="@string/scanner_auto"
+        app:layout_constraintTop_toBottomOf="@id/scannerToolbar"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/scannerFeedbackToast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner_bg"
+        android:padding="12dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/scannerToolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
